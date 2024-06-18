@@ -10,7 +10,8 @@ export default function Home() {
   const fetchApiUser = async () => {
     await axios("")
   }
-  return (
+  
+return (
     <>
       <Head>
         <title>Lập trình thật dễ</title>
