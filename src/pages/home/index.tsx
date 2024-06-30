@@ -57,7 +57,7 @@ export async function getServerSideProps() {
     const productTypes: TOptions[] = []
     await getAllProductTypes({ params: { limit: -1, page: -1 } })
       .then(res => {
-        const data = res?.data.productTypes
+        const data = res?.data?.productTypes || null
         if (data) {
           data?.map((item: { name: string; _id: string }) => {
             productTypes.push({ label: item.name, value: item._id })
@@ -79,7 +79,7 @@ export async function getServerSideProps() {
           limit,
           page,
           order,
-          productType: productTypes?.[0]?.value
+          // productType: productTypes?.[0]?.value || null
         }
       }
     }
