@@ -87,7 +87,7 @@ const HomePage: NextPage<TProps> = (props) => {
   const [optionCities, setOptionCities] = useState<{ label: string; value: string }[]>([])
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    if(!firstRender.current) {
+    if (!firstRender.current) {
       firstRender.current = true
     }
     setProductTypeSelected(newValue)
@@ -144,7 +144,7 @@ const HomePage: NextPage<TProps> = (props) => {
   const handleOnchangePagination = (page: number, pageSize: number) => {
     setPage(page)
     setPageSize(pageSize)
-    if(!firstRender.current) {
+    if (!firstRender.current) {
       firstRender.current = true
     }
   }
@@ -153,14 +153,14 @@ const HomePage: NextPage<TProps> = (props) => {
     switch (type) {
       case 'review': {
         setReviewSelected(value)
-        if(!firstRender.current) {
+        if (!firstRender.current) {
           firstRender.current = true
         }
         break
       }
       case 'location': {
         setLocationSelected(value)
-        if(!firstRender.current) {
+        if (!firstRender.current) {
           firstRender.current = true
         }
         break
@@ -199,7 +199,7 @@ const HomePage: NextPage<TProps> = (props) => {
       setPage(paramsServer.page)
       setPageSize(paramsServer.limit)
       setSortBy(paramsServer.order)
-      if(paramsServer.productType) {
+      if (paramsServer.productType) {
         setProductTypeSelected(paramsServer.productType)
       }
       setProductsPublic({
@@ -220,7 +220,7 @@ const HomePage: NextPage<TProps> = (props) => {
 
   useEffect(() => {
     if (isServerRendered.current && firstRender.current) {
-        setFilterBy({ productType: productTypeSelected, minStar: reviewSelected, productLocation: locationSelected })
+      setFilterBy({ productType: productTypeSelected, minStar: reviewSelected, productLocation: locationSelected })
     }
   }, [productTypeSelected, reviewSelected, locationSelected])
 
@@ -279,7 +279,7 @@ const HomePage: NextPage<TProps> = (props) => {
               <CustomSelect
                 fullWidth
                 onChange={(e) => {
-                  if(!firstRender.current) {
+                  if (!firstRender.current) {
                     firstRender.current = true
                   }
                   setSortBy(e.target.value as string)
@@ -311,7 +311,7 @@ const HomePage: NextPage<TProps> = (props) => {
                 placeholder={t('Search_name_product')}
                 value={searchBy}
                 onChange={(value: string) => {
-                  if(!firstRender.current) {
+                  if (!firstRender.current) {
                     firstRender.current = true
                   }
                   setSearchBy(value)
