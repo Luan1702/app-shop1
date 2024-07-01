@@ -69,7 +69,8 @@ export async function getServerSideProps() {
     )
 
     const data = res?.data
-
+    // console.log('Data:', data);
+    console.log('Product Types:', productTypes);
     return {
       props: {
         products: data?.products,
@@ -84,6 +85,7 @@ export async function getServerSideProps() {
       }
     }
   } catch (error) {
+    // console.error('err:', error);
     return {
       props: {
         products: [],
